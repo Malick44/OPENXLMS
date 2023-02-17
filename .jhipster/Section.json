@@ -1,0 +1,62 @@
+{
+  "applications": "*",
+  "changelogDate": "20230217162602",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "section",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "courseId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "text",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "videoUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "videoId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "videoDuration",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "videoTitle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "videoDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "videoChannelLanguage",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Section",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

@@ -1,0 +1,33 @@
+{
+  "opnLmsApp": {
+    "section": {
+      "home": {
+        "title": "Sections",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Section",
+        "createOrEditLabel": "Créer ou éditer un Section",
+        "notFound": "Aucun Section trouvé"
+      },
+      "created": "Un nouveau Section a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Section avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Section avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Section {{ id }} ?"
+      },
+      "detail": {
+        "title": "Section"
+      },
+      "id": "Id",
+      "title": "Title",
+      "description": "Description",
+      "courseId": "Course Id",
+      "text": "Text",
+      "videoUrl": "Video Url",
+      "videoId": "Video Id",
+      "videoDuration": "Video Duration",
+      "videoTitle": "Video Title",
+      "videoDescription": "Video Description",
+      "videoChannelLanguage": "Video Channel Language"
+    }
+  }
+}

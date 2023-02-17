@@ -1,0 +1,127 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-quizz-heading" data-cy="QuizzCreateUpdateHeading" jhiTranslate="opnLmsApp.quizz.home.createOrEditLabel">
+        Create or edit a Quizz
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.quizz.id" for="field_id">Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="id"
+            id="field_id"
+            data-cy="id"
+            formControlName="id"
+            [readonly]="editForm.get('id')!.value != null"
+          />
+          <div *ngIf="editForm.get('id')!.invalid && (editForm.get('id')!.dirty || editForm.get('id')!.touched)"></div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.quizz.userId" for="field_userId">User Id</label>
+          <input type="text" class="form-control" name="userId" id="field_userId" data-cy="userId" formControlName="userId" />
+          <div *ngIf="editForm.get('userId')!.invalid && (editForm.get('userId')!.dirty || editForm.get('userId')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('userId')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.quizz.courseId" for="field_courseId">Course Id</label>
+          <input type="text" class="form-control" name="courseId" id="field_courseId" data-cy="courseId" formControlName="courseId" />
+          <div *ngIf="editForm.get('courseId')!.invalid && (editForm.get('courseId')!.dirty || editForm.get('courseId')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('courseId')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.quizz.title" for="field_title">Title</label>
+          <input type="text" class="form-control" name="title" id="field_title" data-cy="title" formControlName="title" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.quizz.sectionId" for="field_sectionId">Section Id</label>
+          <input type="text" class="form-control" name="sectionId" id="field_sectionId" data-cy="sectionId" formControlName="sectionId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.quizz.examDate" for="field_examDate">Exam Date</label>
+          <div class="input-group">
+            <input
+              id="field_examDate"
+              data-cy="examDate"
+              type="text"
+              class="form-control"
+              name="examDate"
+              ngbDatepicker
+              #examDateDp="ngbDatepicker"
+              formControlName="examDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="examDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+          <div *ngIf="editForm.get('examDate')!.invalid && (editForm.get('examDate')!.dirty || editForm.get('examDate')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('examDate')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.quizz.numberOfQuestions" for="field_numberOfQuestions"
+            >Number Of Questions</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="numberOfQuestions"
+            id="field_numberOfQuestions"
+            data-cy="numberOfQuestions"
+            formControlName="numberOfQuestions"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.quizz.timeLimit" for="field_timeLimit">Time Limit</label>
+          <input type="number" class="form-control" name="timeLimit" id="field_timeLimit" data-cy="timeLimit" formControlName="timeLimit" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.quizz.score" for="field_score">Score</label>
+          <input type="number" class="form-control" name="score" id="field_score" data-cy="score" formControlName="score" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

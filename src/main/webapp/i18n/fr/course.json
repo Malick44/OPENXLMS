@@ -1,0 +1,37 @@
+{
+  "opnLmsApp": {
+    "course": {
+      "home": {
+        "title": "Courses",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Course",
+        "createOrEditLabel": "Créer ou éditer un Course",
+        "notFound": "Aucun Course trouvé"
+      },
+      "created": "Un nouveau Course a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Course avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Course avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Course {{ id }} ?"
+      },
+      "detail": {
+        "title": "Course"
+      },
+      "id": "Id",
+      "title": "Title",
+      "authorId": "Author Id",
+      "description": "Description",
+      "instructorId": "Instructor Id",
+      "level": "Level",
+      "language": "Language",
+      "duration": "Duration",
+      "price": "Price",
+      "rating": "Rating",
+      "ratingCount": "Rating Count",
+      "thumbnail": "Thumbnail",
+      "url": "Url",
+      "categoryId": "Category Id",
+      "subCategoryId": "Sub Category Id"
+    }
+  }
+}

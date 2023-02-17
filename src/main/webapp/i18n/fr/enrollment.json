@@ -1,0 +1,28 @@
+{
+  "opnLmsApp": {
+    "enrollment": {
+      "home": {
+        "title": "Enrollments",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Enrollment",
+        "createOrEditLabel": "Créer ou éditer un Enrollment",
+        "notFound": "Aucun Enrollment trouvé"
+      },
+      "created": "Un nouveau Enrollment a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Enrollment avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Enrollment avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Enrollment {{ id }} ?"
+      },
+      "detail": {
+        "title": "Enrollment"
+      },
+      "id": "Id",
+      "courseId": "Course Id",
+      "userId": "User Id",
+      "enrolledDate": "Enrolled Date",
+      "completionRate": "Completion Rate",
+      "completedDate": "Completed Date"
+    }
+  }
+}

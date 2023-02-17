@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="instructor">
+      <h2 data-cy="instructorDetailsHeading"><span jhiTranslate="opnLmsApp.instructor.detail.title">Instructor</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="opnLmsApp.instructor.id">Id</span></dt>
+        <dd>
+          <span>{{ instructor.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.instructor.courseId">Course Id</span></dt>
+        <dd>
+          <span>{{ instructor.courseId }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.instructor.name">Name</span></dt>
+        <dd>
+          <span>{{ instructor.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.instructor.email">Email</span></dt>
+        <dd>
+          <span>{{ instructor.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.instructor.instructorUrl">Instructor Url</span></dt>
+        <dd>
+          <span>{{ instructor.instructorUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.instructor.instructorThumbnail">Instructor Thumbnail</span></dt>
+        <dd>
+          <span>{{ instructor.instructorThumbnail }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.instructor.instructorRating">Instructor Rating</span></dt>
+        <dd>
+          <span>{{ instructor.instructorRating }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.instructor.instructorRatingCount">Instructor Rating Count</span></dt>
+        <dd>
+          <span>{{ instructor.instructorRatingCount }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.instructor.instructorTotalStudents">Instructor Total Students</span></dt>
+        <dd>
+          <span>{{ instructor.instructorTotalStudents }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.instructor.instructorTotalReviews">Instructor Total Reviews</span></dt>
+        <dd>
+          <span>{{ instructor.instructorTotalReviews }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.instructor.ratingCount">Rating Count</span></dt>
+        <dd>
+          <span>{{ instructor.ratingCount }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/instructor', instructor.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

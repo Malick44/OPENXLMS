@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="enrollment">
+      <h2 data-cy="enrollmentDetailsHeading"><span jhiTranslate="opnLmsApp.enrollment.detail.title">Enrollment</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="opnLmsApp.enrollment.id">Id</span></dt>
+        <dd>
+          <span>{{ enrollment.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.enrollment.courseId">Course Id</span></dt>
+        <dd>
+          <span>{{ enrollment.courseId }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.enrollment.userId">User Id</span></dt>
+        <dd>
+          <span>{{ enrollment.userId }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.enrollment.enrolledDate">Enrolled Date</span></dt>
+        <dd>
+          <span>{{ enrollment.enrolledDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.enrollment.completionRate">Completion Rate</span></dt>
+        <dd>
+          <span>{{ enrollment.completionRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.enrollment.completedDate">Completed Date</span></dt>
+        <dd>
+          <span>{{ enrollment.completedDate | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/enrollment', enrollment.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

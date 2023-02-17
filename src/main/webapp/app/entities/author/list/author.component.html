@@ -1,0 +1,176 @@
+<div>
+  <h2 id="page-heading" data-cy="AuthorHeading">
+    <span jhiTranslate="opnLmsApp.author.home.title">Authors</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="opnLmsApp.author.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-author"
+        [routerLink]="['/author/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="opnLmsApp.author.home.createLabel"> Create a new Author </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="authors?.length === 0">
+    <span jhiTranslate="opnLmsApp.author.home.notFound">No Authors found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="authors && authors.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.author.id">Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="firstName">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.author.firstName">First Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastName">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.author.lastName">Last Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.author.email">Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="password">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.author.password">Password</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createDate">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.author.createDate">Create Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="avatarUrl">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.author.avatarUrl">Avatar Url</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="activated">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.author.activated">Activated</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="langKey">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.author.langKey">Lang Key</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="resetDate">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.author.resetDate">Reset Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="resetKey">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.author.resetKey">Reset Key</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="authorities">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.author.authorities">Authorities</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.author.createdBy">Created By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.author.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedDate">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.author.lastModifiedDate">Last Modified Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="courseId">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.author.courseId">Course Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let author of authors; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/author', author.id, 'view']">{{ author.id }}</a>
+          </td>
+          <td>{{ author.firstName }}</td>
+          <td>{{ author.lastName }}</td>
+          <td>{{ author.email }}</td>
+          <td>{{ author.password }}</td>
+          <td>{{ author.createDate | formatMediumDatetime }}</td>
+          <td>{{ author.avatarUrl }}</td>
+          <td>{{ author.activated }}</td>
+          <td>{{ author.langKey }}</td>
+          <td>{{ author.resetDate | formatMediumDatetime }}</td>
+          <td>{{ author.resetKey }}</td>
+          <td>{{ author.authorities }}</td>
+          <td>{{ author.createdBy }}</td>
+          <td>{{ author.lastModifiedBy }}</td>
+          <td>{{ author.lastModifiedDate | formatMediumDatetime }}</td>
+          <td>{{ author.courseId }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/author', author.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/author', author.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(author)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="assessment">
+      <h2 data-cy="assessmentDetailsHeading"><span jhiTranslate="opnLmsApp.assessment.detail.title">Assessment</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="opnLmsApp.assessment.id">Id</span></dt>
+        <dd>
+          <span>{{ assessment.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.assessment.userId">User Id</span></dt>
+        <dd>
+          <span>{{ assessment.userId }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.assessment.courseId">Course Id</span></dt>
+        <dd>
+          <span>{{ assessment.courseId }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.assessment.title">Title</span></dt>
+        <dd>
+          <span>{{ assessment.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.assessment.sectionId">Section Id</span></dt>
+        <dd>
+          <span>{{ assessment.sectionId }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.assessment.examDate">Exam Date</span></dt>
+        <dd>
+          <span>{{ assessment.examDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.assessment.numberOfQuestions">Number Of Questions</span></dt>
+        <dd>
+          <span>{{ assessment.numberOfQuestions }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.assessment.timeLimit">Time Limit</span></dt>
+        <dd>
+          <span>{{ assessment.timeLimit }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.assessment.score">Score</span></dt>
+        <dd>
+          <span>{{ assessment.score }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/assessment', assessment.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

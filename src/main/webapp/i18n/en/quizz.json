@@ -1,0 +1,31 @@
+{
+  "opnLmsApp": {
+    "quizz": {
+      "home": {
+        "title": "Quizzes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Quizz",
+        "createOrEditLabel": "Create or edit a Quizz",
+        "notFound": "No Quizzes found"
+      },
+      "created": "A new Quizz is created with identifier {{ param }}",
+      "updated": "A Quizz is updated with identifier {{ param }}",
+      "deleted": "A Quizz is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Quizz {{ id }}?"
+      },
+      "detail": {
+        "title": "Quizz"
+      },
+      "id": "Id",
+      "userId": "User Id",
+      "courseId": "Course Id",
+      "title": "Title",
+      "sectionId": "Section Id",
+      "examDate": "Exam Date",
+      "numberOfQuestions": "Number Of Questions",
+      "timeLimit": "Time Limit",
+      "score": "Score"
+    }
+  }
+}

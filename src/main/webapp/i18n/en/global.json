@@ -7,6 +7,20 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "course": "Course",
+        "enrollment": "Enrollment",
+        "section": "Section",
+        "category": "Category",
+        "subCategory": "Sub Category",
+        "author": "Author",
+        "assignment": "Assignment",
+        "assessment": "Assessment",
+        "quizz": "Quizz",
+        "question": "Question",
+        "option": "Option",
+        "organisation": "Organisation",
+        "rating": "Rating",
+        "instructor": "Instructor",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

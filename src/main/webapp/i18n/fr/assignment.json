@@ -1,0 +1,31 @@
+{
+  "opnLmsApp": {
+    "assignment": {
+      "home": {
+        "title": "Assignments",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Assignment",
+        "createOrEditLabel": "Créer ou éditer un Assignment",
+        "notFound": "Aucun Assignment trouvé"
+      },
+      "created": "Un nouveau Assignment a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Assignment avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Assignment avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Assignment {{ id }} ?"
+      },
+      "detail": {
+        "title": "Assignment"
+      },
+      "id": "Id",
+      "userId": "User Id",
+      "courseId": "Course Id",
+      "title": "Title",
+      "sectionId": "Section Id",
+      "examDate": "Exam Date",
+      "numberOfQuestions": "Number Of Questions",
+      "timeLimit": "Time Limit",
+      "score": "Score"
+    }
+  }
+}

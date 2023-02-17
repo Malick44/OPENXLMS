@@ -1,0 +1,162 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-course-heading" data-cy="CourseCreateUpdateHeading" jhiTranslate="opnLmsApp.course.home.createOrEditLabel">
+        Create or edit a Course
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.course.id" for="field_id">Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="id"
+            id="field_id"
+            data-cy="id"
+            formControlName="id"
+            [readonly]="editForm.get('id')!.value != null"
+          />
+          <div *ngIf="editForm.get('id')!.invalid && (editForm.get('id')!.dirty || editForm.get('id')!.touched)"></div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.course.title" for="field_title">Title</label>
+          <input type="text" class="form-control" name="title" id="field_title" data-cy="title" formControlName="title" />
+          <div *ngIf="editForm.get('title')!.invalid && (editForm.get('title')!.dirty || editForm.get('title')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('title')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.course.authorId" for="field_authorId">Author Id</label>
+          <input type="text" class="form-control" name="authorId" id="field_authorId" data-cy="authorId" formControlName="authorId" />
+          <div *ngIf="editForm.get('authorId')!.invalid && (editForm.get('authorId')!.dirty || editForm.get('authorId')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('authorId')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.course.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.course.instructorId" for="field_instructorId">Instructor Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="instructorId"
+            id="field_instructorId"
+            data-cy="instructorId"
+            formControlName="instructorId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.course.level" for="field_level">Level</label>
+          <input type="text" class="form-control" name="level" id="field_level" data-cy="level" formControlName="level" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.course.language" for="field_language">Language</label>
+          <input type="text" class="form-control" name="language" id="field_language" data-cy="language" formControlName="language" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.course.duration" for="field_duration">Duration</label>
+          <input type="text" class="form-control" name="duration" id="field_duration" data-cy="duration" formControlName="duration" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.course.price" for="field_price">Price</label>
+          <input type="text" class="form-control" name="price" id="field_price" data-cy="price" formControlName="price" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.course.rating" for="field_rating">Rating</label>
+          <input type="text" class="form-control" name="rating" id="field_rating" data-cy="rating" formControlName="rating" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.course.ratingCount" for="field_ratingCount">Rating Count</label>
+          <input
+            type="text"
+            class="form-control"
+            name="ratingCount"
+            id="field_ratingCount"
+            data-cy="ratingCount"
+            formControlName="ratingCount"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.course.thumbnail" for="field_thumbnail">Thumbnail</label>
+          <input type="text" class="form-control" name="thumbnail" id="field_thumbnail" data-cy="thumbnail" formControlName="thumbnail" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.course.url" for="field_url">Url</label>
+          <input type="text" class="form-control" name="url" id="field_url" data-cy="url" formControlName="url" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.course.categoryId" for="field_categoryId">Category Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="categoryId"
+            id="field_categoryId"
+            data-cy="categoryId"
+            formControlName="categoryId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.course.subCategoryId" for="field_subCategoryId">Sub Category Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="subCategoryId"
+            id="field_subCategoryId"
+            data-cy="subCategoryId"
+            formControlName="subCategoryId"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

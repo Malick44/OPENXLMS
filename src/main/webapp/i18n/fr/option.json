@@ -1,0 +1,29 @@
+{
+  "opnLmsApp": {
+    "option": {
+      "home": {
+        "title": "Options",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Option",
+        "createOrEditLabel": "Créer ou éditer un Option",
+        "notFound": "Aucun Option trouvé"
+      },
+      "created": "Un nouveau Option a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Option avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Option avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Option {{ id }} ?"
+      },
+      "detail": {
+        "title": "Option"
+      },
+      "id": "Id",
+      "text": "Text",
+      "questionId": "Question Id",
+      "correct": "Correct",
+      "assessmentId": "Assessment Id",
+      "assignmentId": "Assignment Id",
+      "quizzId": "Quizz Id"
+    }
+  }
+}

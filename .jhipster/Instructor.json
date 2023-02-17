@@ -1,0 +1,62 @@
+{
+  "applications": "*",
+  "changelogDate": "20230217162613",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "instructor",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "courseId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "instructorUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "instructorThumbnail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "instructorRating",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "instructorRatingCount",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "instructorTotalStudents",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "instructorTotalReviews",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ratingCount",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Instructor",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

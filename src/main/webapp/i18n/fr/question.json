@@ -1,0 +1,29 @@
+{
+  "opnLmsApp": {
+    "question": {
+      "home": {
+        "title": "Questions",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Question",
+        "createOrEditLabel": "Créer ou éditer un Question",
+        "notFound": "Aucun Question trouvé"
+      },
+      "created": "Un nouveau Question a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Question avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Question avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Question {{ id }} ?"
+      },
+      "detail": {
+        "title": "Question"
+      },
+      "id": "Id",
+      "sectionId": "Section Id",
+      "courseId": "Course Id",
+      "text": "Text",
+      "assignmentId": "Assignment Id",
+      "assessmentId": "Assessment Id",
+      "quizzId": "Quizz Id"
+    }
+  }
+}

@@ -1,0 +1,88 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="author">
+      <h2 data-cy="authorDetailsHeading"><span jhiTranslate="opnLmsApp.author.detail.title">Author</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="opnLmsApp.author.id">Id</span></dt>
+        <dd>
+          <span>{{ author.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.author.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ author.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.author.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ author.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.author.email">Email</span></dt>
+        <dd>
+          <span>{{ author.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.author.password">Password</span></dt>
+        <dd>
+          <span>{{ author.password }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.author.createDate">Create Date</span></dt>
+        <dd>
+          <span>{{ author.createDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.author.avatarUrl">Avatar Url</span></dt>
+        <dd>
+          <span>{{ author.avatarUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.author.activated">Activated</span></dt>
+        <dd>
+          <span>{{ author.activated }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.author.langKey">Lang Key</span></dt>
+        <dd>
+          <span>{{ author.langKey }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.author.resetDate">Reset Date</span></dt>
+        <dd>
+          <span>{{ author.resetDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.author.resetKey">Reset Key</span></dt>
+        <dd>
+          <span>{{ author.resetKey }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.author.authorities">Authorities</span></dt>
+        <dd>
+          <span>{{ author.authorities }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.author.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ author.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.author.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ author.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.author.lastModifiedDate">Last Modified Date</span></dt>
+        <dd>
+          <span>{{ author.lastModifiedDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.author.courseId">Course Id</span></dt>
+        <dd>
+          <span>{{ author.courseId }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/author', author.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

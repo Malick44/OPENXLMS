@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="quizz">
+      <h2 data-cy="quizzDetailsHeading"><span jhiTranslate="opnLmsApp.quizz.detail.title">Quizz</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="opnLmsApp.quizz.id">Id</span></dt>
+        <dd>
+          <span>{{ quizz.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.quizz.userId">User Id</span></dt>
+        <dd>
+          <span>{{ quizz.userId }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.quizz.courseId">Course Id</span></dt>
+        <dd>
+          <span>{{ quizz.courseId }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.quizz.title">Title</span></dt>
+        <dd>
+          <span>{{ quizz.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.quizz.sectionId">Section Id</span></dt>
+        <dd>
+          <span>{{ quizz.sectionId }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.quizz.examDate">Exam Date</span></dt>
+        <dd>
+          <span>{{ quizz.examDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.quizz.numberOfQuestions">Number Of Questions</span></dt>
+        <dd>
+          <span>{{ quizz.numberOfQuestions }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.quizz.timeLimit">Time Limit</span></dt>
+        <dd>
+          <span>{{ quizz.timeLimit }}</span>
+        </dd>
+        <dt><span jhiTranslate="opnLmsApp.quizz.score">Score</span></dt>
+        <dd>
+          <span>{{ quizz.score }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/quizz', quizz.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

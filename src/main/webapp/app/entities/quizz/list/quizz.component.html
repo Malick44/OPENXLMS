@@ -1,0 +1,127 @@
+<div>
+  <h2 id="page-heading" data-cy="QuizzHeading">
+    <span jhiTranslate="opnLmsApp.quizz.home.title">Quizzes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="opnLmsApp.quizz.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-quizz"
+        [routerLink]="['/quizz/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="opnLmsApp.quizz.home.createLabel"> Create a new Quizz </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="quizzes?.length === 0">
+    <span jhiTranslate="opnLmsApp.quizz.home.notFound">No Quizzes found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="quizzes && quizzes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.quizz.id">Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="userId">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.quizz.userId">User Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="courseId">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.quizz.courseId">Course Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="title">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.quizz.title">Title</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sectionId">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.quizz.sectionId">Section Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="examDate">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.quizz.examDate">Exam Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numberOfQuestions">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.quizz.numberOfQuestions">Number Of Questions</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="timeLimit">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.quizz.timeLimit">Time Limit</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="score">
+            <div class="d-flex">
+              <span jhiTranslate="opnLmsApp.quizz.score">Score</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let quizz of quizzes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/quizz', quizz.id, 'view']">{{ quizz.id }}</a>
+          </td>
+          <td>{{ quizz.userId }}</td>
+          <td>{{ quizz.courseId }}</td>
+          <td>{{ quizz.title }}</td>
+          <td>{{ quizz.sectionId }}</td>
+          <td>{{ quizz.examDate | formatMediumDate }}</td>
+          <td>{{ quizz.numberOfQuestions }}</td>
+          <td>{{ quizz.timeLimit }}</td>
+          <td>{{ quizz.score }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/quizz', quizz.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/quizz', quizz.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(quizz)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

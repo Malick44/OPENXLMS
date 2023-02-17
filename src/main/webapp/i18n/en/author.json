@@ -1,0 +1,38 @@
+{
+  "opnLmsApp": {
+    "author": {
+      "home": {
+        "title": "Authors",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Author",
+        "createOrEditLabel": "Create or edit a Author",
+        "notFound": "No Authors found"
+      },
+      "created": "A new Author is created with identifier {{ param }}",
+      "updated": "A Author is updated with identifier {{ param }}",
+      "deleted": "A Author is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Author {{ id }}?"
+      },
+      "detail": {
+        "title": "Author"
+      },
+      "id": "Id",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "createDate": "Create Date",
+      "avatarUrl": "Avatar Url",
+      "activated": "Activated",
+      "langKey": "Lang Key",
+      "resetDate": "Reset Date",
+      "resetKey": "Reset Key",
+      "authorities": "Authorities",
+      "createdBy": "Created By",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "courseId": "Course Id"
+    }
+  }
+}

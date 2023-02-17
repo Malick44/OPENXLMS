@@ -1,0 +1,128 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-enrollment-heading" data-cy="EnrollmentCreateUpdateHeading" jhiTranslate="opnLmsApp.enrollment.home.createOrEditLabel">
+        Create or edit a Enrollment
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.enrollment.id" for="field_id">Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="id"
+            id="field_id"
+            data-cy="id"
+            formControlName="id"
+            [readonly]="editForm.get('id')!.value != null"
+          />
+          <div *ngIf="editForm.get('id')!.invalid && (editForm.get('id')!.dirty || editForm.get('id')!.touched)"></div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.enrollment.courseId" for="field_courseId">Course Id</label>
+          <input type="text" class="form-control" name="courseId" id="field_courseId" data-cy="courseId" formControlName="courseId" />
+          <div *ngIf="editForm.get('courseId')!.invalid && (editForm.get('courseId')!.dirty || editForm.get('courseId')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('courseId')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.enrollment.userId" for="field_userId">User Id</label>
+          <input type="text" class="form-control" name="userId" id="field_userId" data-cy="userId" formControlName="userId" />
+          <div *ngIf="editForm.get('userId')!.invalid && (editForm.get('userId')!.dirty || editForm.get('userId')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('userId')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.enrollment.enrolledDate" for="field_enrolledDate">Enrolled Date</label>
+          <div class="input-group">
+            <input
+              id="field_enrolledDate"
+              data-cy="enrolledDate"
+              type="text"
+              class="form-control"
+              name="enrolledDate"
+              ngbDatepicker
+              #enrolledDateDp="ngbDatepicker"
+              formControlName="enrolledDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="enrolledDateDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+          <div
+            *ngIf="editForm.get('enrolledDate')!.invalid && (editForm.get('enrolledDate')!.dirty || editForm.get('enrolledDate')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('enrolledDate')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.enrollment.completionRate" for="field_completionRate">Completion Rate</label>
+          <input
+            type="number"
+            class="form-control"
+            name="completionRate"
+            id="field_completionRate"
+            data-cy="completionRate"
+            formControlName="completionRate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.enrollment.completedDate" for="field_completedDate">Completed Date</label>
+          <div class="input-group">
+            <input
+              id="field_completedDate"
+              data-cy="completedDate"
+              type="text"
+              class="form-control"
+              name="completedDate"
+              ngbDatepicker
+              #completedDateDp="ngbDatepicker"
+              formControlName="completedDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="completedDateDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

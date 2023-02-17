@@ -1,0 +1,152 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-instructor-heading" data-cy="InstructorCreateUpdateHeading" jhiTranslate="opnLmsApp.instructor.home.createOrEditLabel">
+        Create or edit a Instructor
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.instructor.id" for="field_id">Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="id"
+            id="field_id"
+            data-cy="id"
+            formControlName="id"
+            [readonly]="editForm.get('id')!.value != null"
+          />
+          <div *ngIf="editForm.get('id')!.invalid && (editForm.get('id')!.dirty || editForm.get('id')!.touched)"></div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.instructor.courseId" for="field_courseId">Course Id</label>
+          <input type="text" class="form-control" name="courseId" id="field_courseId" data-cy="courseId" formControlName="courseId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.instructor.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.instructor.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.instructor.instructorUrl" for="field_instructorUrl">Instructor Url</label>
+          <input
+            type="text"
+            class="form-control"
+            name="instructorUrl"
+            id="field_instructorUrl"
+            data-cy="instructorUrl"
+            formControlName="instructorUrl"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.instructor.instructorThumbnail" for="field_instructorThumbnail"
+            >Instructor Thumbnail</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="instructorThumbnail"
+            id="field_instructorThumbnail"
+            data-cy="instructorThumbnail"
+            formControlName="instructorThumbnail"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.instructor.instructorRating" for="field_instructorRating"
+            >Instructor Rating</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="instructorRating"
+            id="field_instructorRating"
+            data-cy="instructorRating"
+            formControlName="instructorRating"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.instructor.instructorRatingCount" for="field_instructorRatingCount"
+            >Instructor Rating Count</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="instructorRatingCount"
+            id="field_instructorRatingCount"
+            data-cy="instructorRatingCount"
+            formControlName="instructorRatingCount"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.instructor.instructorTotalStudents" for="field_instructorTotalStudents"
+            >Instructor Total Students</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="instructorTotalStudents"
+            id="field_instructorTotalStudents"
+            data-cy="instructorTotalStudents"
+            formControlName="instructorTotalStudents"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.instructor.instructorTotalReviews" for="field_instructorTotalReviews"
+            >Instructor Total Reviews</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="instructorTotalReviews"
+            id="field_instructorTotalReviews"
+            data-cy="instructorTotalReviews"
+            formControlName="instructorTotalReviews"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="opnLmsApp.instructor.ratingCount" for="field_ratingCount">Rating Count</label>
+          <input
+            type="text"
+            class="form-control"
+            name="ratingCount"
+            id="field_ratingCount"
+            data-cy="ratingCount"
+            formControlName="ratingCount"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
